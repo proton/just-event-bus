@@ -1,0 +1,23 @@
+{
+  "name": "just-event-bus",
+  "version": "1.0.0",
+  "description": "Simple Event bus compatible with React.js/Vue.js/Svelte/anything else",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/proton/just-event-bus.git"
+  },
+  "keywords": [
+    "event",
+    "bus"
+  ],
+  "author": "Petr Savichev (proton)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/proton/just-event-bus/issues"
+  },
+  "homepage": "https://github.com/proton/just-event-bus#readme"
+}

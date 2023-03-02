@@ -1,6 +1,6 @@
 {
   "name": "just-event-bus",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Simple Event bus compatible with React.js/Vue.js/Svelte/anything else",
   "main": "index.js",
   "scripts": {

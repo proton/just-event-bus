@@ -9,10 +9,10 @@ test('it calls proper callbacks', () => {
   EventBus.on('foo', f2)
   EventBus.on('bar', f3)
 
-  EventBus.emit('foo')
+  EventBus.emit('foo', 'something')
 
-  expect(f1).toHaveBeenCalled()
-  expect(f2).toHaveBeenCalled()
+  expect(f1).toHaveBeenCalledWith('something')
+  expect(f2).toHaveBeenCalledWith('something')
   expect(f3).not.toHaveBeenCalled()
 })
 

@@ -1,3 +1,9 @@
-node_modules
-TODO
 .eslintcache
+.vscode
+.idea
+.DS_Store
+.nyc_output
+node_modules
+coverage
+TODO
+

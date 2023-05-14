@@ -1,3 +1,5 @@
+const arrayrize = array => (Array.isArray(array) ? array : [array])
+
 class EventBus {
   static emit(eventName, data) {
     this.getInstance().emit(eventName, data)
@@ -34,19 +36,46 @@ class EventBus {
     }
   }
 
-  on(eventName, listener) {
-    this.listeners[eventName] = this.listeners[eventName] || new Set()
-    const listeners = this.listeners[eventName]
-    listeners.add(listener)
+  on(eventNames, listeners) {
+    eventNames = arrayrize(eventNames)
+    listeners = arrayrize(listeners)
+
+    for (const eventName of eventNames) {
+      this._onEvent(eventName, listeners)
+    }
   }
 
-  off(eventName, listener) {
-    const listeners = this.listeners[eventName]
-    if (listeners) {
-      listeners.delete(listener)
-      if (listeners.size === 0) {
-        delete this.listeners[eventName]
-      }
+  off(eventNames, listeners) {
+    eventNames = arrayrize(eventNames)
+    listeners = arrayrize(listeners)
+
+    for (const eventName of eventNames) {
+      this._offEvent(eventName, listeners)
+    }
+  }
+
+  _onEvent(eventName, listeners) {
+    if (!this.listeners[eventName]) {
+      this.listeners[eventName] = new Set()
+    }
+
+    for (const listener of listeners) {
+      this.listeners[eventName].add(listener)
+    }
+  }
+
+  _offEvent(eventName, listeners) {
+    const eventListeners = this.listeners[eventName]
+    if (!eventListeners) {
+      return
+    }
+
+    for (const listener of listeners) {
+      eventListeners.delete(listener)
+    }
+
+    if (eventListeners.size === 0) {
+      delete this.listeners[eventName]
     }
   }
 }

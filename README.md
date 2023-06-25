@@ -1,5 +1,11 @@
 # Simple Event Bus for javascript that just works
 
+### Installation
+
+`npm install just-event-bus`
+
+### Usage
+
 ```javascript
 const fn = (text) => console.log(text);
 EventBus.on("foo", fn);

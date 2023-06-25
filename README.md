@@ -7,6 +7,8 @@
 ### Usage
 
 ```javascript
+import EventBus from 'just-event-bus'
+
 const fn = (text) => console.log(text);
 EventBus.on("foo", fn);
 
@@ -16,6 +18,8 @@ EventBus.emit("foo", "Hello World!"); // => Hello World!
 Also it supports arrays:
 
 ```javascript
+import EventBus from 'just-event-bus'
+
 const fn = (text) => console.log(text);
 EventBus.on(["foo", "bar"], [fn]);
 
